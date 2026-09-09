@@ -1,16 +1,510 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>MessyNav</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="MessyNav performs zero-shot navigation via manipulation in messy environments.">
+  <meta name="keywords" content="MessyNav, robot navigation, mobile manipulation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MessyNav: Zero-Shot Navigation via Manipulation in Messy Environments</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css?v=11">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js?v=3"></script>
 </head>
 <body>
-    <h1>Accepted to Coral</h1>
-    <a href="./1/index.html">Project 1</a>
+
+<nav class="navbar messynav-navbar" role="navigation" aria-label="main navigation">
+  <div class="container is-fullhd">
+    <div class="navbar-brand">
+      <a class="navbar-item messynav-brand" href="#top">MessyNav</a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+         data-target="navMenu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="navMenu" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="#abstract">Abstract</a>
+        <a class="navbar-item" href="#approach">Approach</a>
+        <a class="navbar-item" href="#results">Results</a>
+        <a class="navbar-item" href="#BibTeX">BibTeX</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
+<section class="hero hero-gradient" id="top">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">MessyNav: Zero-Shot Navigation via
+            Manipulation in Messy Environments</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/kenneth-llontop">Kenneth Llontop</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://cherieho.com/">Cherie Ho</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/dz8/">Dylan Zhou</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://anuvabanwasi.github.io/">Anuva Banwasi</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://priyasundaresan.github.io">Priya Sundaresan</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://carlotapares.com/">Carlota Parés-Morlans</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://web.stanford.edu/~bohg/">Jeannette Bohg</a><sup>1</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Stanford University,</span>
+            <span class="author-block"><sup>2</sup>UC Berkeley</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <span class="publication-venue is-size-5">Accepted to CoRL 2026</span>
+
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="TODO_PAPER_URL"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- arXiv Link. -->
+              <span class="link-block">
+                <a href="TODO_ARXIV_URL"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="TODO_VIDEO_URL"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-youtube"></i></span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="TODO_CODE_URL"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser carousel. -->
+<section class="hero teaser">
+  <div class="container is-fullhd">
+    <div class="hero-body">
+      <div class="carousel results-carousel">
+          <div class="item">
+            <video autoplay muted loop playsinline height="100%">
+              <source src="./static/videos/outdoor_mess.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video autoplay muted loop playsinline height="100%">
+              <source src="./static/videos/unstable_books.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video autoplay muted loop playsinline height="100%">
+              <source src="./static/videos/outdoor_garden_party.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video autoplay muted loop playsinline height="100%">
+              <source src="./static/videos/computer.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item">
+            <video autoplay muted loop playsinline height="100%">
+              <source src="./static/videos/night.mp4" type="video/mp4">
+            </video>
+          </div>
+      </div>
+      <h2 class="subtitle has-text-centered">
+        MessyNav deployed across a range of real-world scenes. With no collision-free path
+        available, it reasons about object affordances from appearance and context to decide what
+        to move and still reaches its goal.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="abstract">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Real-world environments are messy. Paths are often blocked by everyday objects like chairs and toys, requiring interactive navigation (the ability to alter the environment to clear a path) rather than standard navigation alone. Existing methods rely on extensive simulation-based learning or per-scenario instructions specifying which objects to avoid or manipulate. They struggle to generalize across novel objects, diverse environments, and varied contexts such as a cart of fragile glassware that should be avoided while an empty one can be pushed. We formalize this problem as open-world interactive navigation and present MessyNav, a zero-shot framework based on vision-language models (VLMs). At its core, MessyNav performs explicit VLM-based affordance reasoning before task planning to decide whether to push, pick up, or avoid an object and produce a high-level plan. Deployed on a mobile manipulator across multiple real-world indoor and outdoor environments, MessyNav achieves a 27% higher success rate than existing baselines without any task-specific training.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <video class="paper-video" controls preload="metadata" playsinline
+               poster="./static/images/video-poster.jpg">
+          <source src="./static/videos/messynav_corl_final.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+<section class="section" id="approach">
+  <div class="container is-max-desktop">
+
+    <!-- Approach. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Approach</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present MessyNav, an interactive navigation framework that leverages VLMs for
+            zero-shot affordance reasoning and task planning, to go beyond closed-set prediction
+            or environment-specific tuning.
+          </p>
+        </div>
+
+        <img src="./static/images/approach.png"
+             alt="MessyNav framework: RGB, depth, and lidar inputs feed a VLM affordance reasoner
+                  that labels objects as interactive or non-interactive, a VLM task planner that
+                  emits a plan, and an open-language skill library of pick_up, swipe_left,
+                  swipe_right, and move_to primitives executed on a mobile manipulator.">
+
+        <div class="content has-text-justified">
+          <p>
+            Our central design decision is to separate <em>what</em> to interact with from
+            <em>how</em> to interact: an explicit affordance reasoning stage first decides which
+            objects can be moved, and only then does a task planner decide how to move them. We
+            make affordance reasoning an explicit stage rather than letting a task planner
+            implicitly handle affordance, allowing it to make more grounded decisions in
+            context-dependent scenarios.
+          </p>
+          <p>
+            The framework consists of three components:
+          </p>
+          <ol>
+            <li>
+              <b>Affordance Reasoner:</b> Identifies which objects are interactive based on robot
+              feasibility and object properties.
+            </li>
+            <li>
+              <b>Task Planner:</b> Generates a sequence of navigation and manipulation actions
+              based on the affordance labels to clear the blocking objects and reach the goal.
+            </li>
+            <li>
+              <b>Open-Language Skill Library:</b> Grounds open-language object references in task
+              plans to 3D world coordinates and executes motion primitives.
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!--/ Approach. -->
+
+  </div>
+</section>
+
+<!-- Results. -->
+<section class="section" id="results">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Results</h2>
+
+        <h3 class="title is-4">Affordance reasoning</h3>
+        <div class="content has-text-justified">
+          <p>
+            We first evaluate affordance reasoning in isolation from the full framework. Given an
+            RGB image containing one or more obstacles, the task is to classify each obstacle as
+            interactive (it can be swiped or picked up by our robot) or non-interactive (it must be
+            avoided). We collect and manually annotate a benchmark of <b>100 real-world scenes
+            totalling 217 objects across 14 locations</b>. It spans 69% indoor and 31% outdoor
+            scenes; bright artificial (66%), natural (28%), and dim (6%) lighting; 1&ndash;4
+            foreground objects per scene; and obstacle sizes from small electronics to large trees.
+            Of the 217 objects, 94 (43.3%) are interactive and 123 (56.7%) are non-interactive.
+            Labels were annotated by an expert familiar with the robot's physical capabilities, and
+            the set is used only for evaluation, never for training or finetuning.
+          </p>
+        </div>
+
+        <table class="table is-fullwidth is-hoverable results-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th class="has-text-right">Accuracy (%) &uarr;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="is-ours">
+              <td><b>MessyNav</b></td>
+              <td class="has-text-right"><b>82.9</b></td>
+            </tr>
+            <tr>
+              <td>height-only [5]</td>
+              <td class="has-text-right">59.9</td>
+            </tr>
+            <tr>
+              <td>closed-set [4]</td>
+              <td class="has-text-right">24.4</td>
+            </tr>
+            <tr>
+              <td>closed-set-oracle [4]</td>
+              <td class="has-text-right">64.5</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="table-caption">
+          <b>Table 1: Affordance accuracy.</b> MessyNav outperforms all baselines. Even
+          closed-set-oracle, an upper bound whose categories are drawn from the evaluation
+          set itself, underperforms MessyNav. <b>Takeaway:</b> predefined category-level labels are
+          insufficient for context-dependent affordance reasoning.
+        </p>
+
+        <div class="columns is-multiline affordance-grid">
+          <div class="column is-half">
+            <div class="affordance-pair">
+              <img src="./static/images/affordance/0448.jpg" alt="Conference room with a white rolling cart, a black suitcase topped with a cardboard box, red sofas, hats and a wrapped package on the floor" loading="lazy">
+              <img class="affordance-eval" src="./static/images/affordance/0448_eval.jpg"
+                   alt="Same scene with predicted affordance labels and ground-truth correctness"
+                   loading="lazy">
+            </div>
+          </div>
+          <div class="column is-half">
+            <div class="affordance-pair">
+              <img src="./static/images/affordance/0460.jpg" alt="Outdoor park in daylight with a wooden bench, a trash can, a plastic bag and a picnic table among fallen leaves" loading="lazy">
+              <img class="affordance-eval" src="./static/images/affordance/0460_eval.jpg"
+                   alt="Same scene with predicted affordance labels and ground-truth correctness"
+                   loading="lazy">
+            </div>
+          </div>
+          <div class="column is-half">
+            <div class="affordance-pair">
+              <img src="./static/images/affordance/0513.jpg" alt="Indoor room with a wooden toy train set and a teddy bear on carpet" loading="lazy">
+              <img class="affordance-eval" src="./static/images/affordance/0513_eval.jpg"
+                   alt="Same scene with predicted affordance labels and ground-truth correctness"
+                   loading="lazy">
+            </div>
+          </div>
+          <div class="column is-half">
+            <div class="affordance-pair">
+              <img src="./static/images/affordance/7755.jpg" alt="Outdoor walkway at night with a red slatted crate on the pavement" loading="lazy">
+              <img class="affordance-eval" src="./static/images/affordance/7755_eval.jpg"
+                   alt="Same scene with predicted affordance labels and ground-truth correctness"
+                   loading="lazy">
+            </div>
+          </div>
+        </div>
+        <p class="table-caption">
+          <b>Example scenes from the benchmark.</b> Hover over an image to reveal the annotated
+          evaluation view: each object is boxed and labeled with its predicted affordance
+          (<b>[I]</b> interactive, <b>[N]</b> non-interactive) alongside whether the prediction
+          matches the human ground truth.
+        </p>
+
+        <h3 class="title is-4">Real-world interactive navigation</h3>
+        <div class="content has-text-justified">
+          <p>
+            We then evaluate full end-to-end execution on a real robot across <b>15 real-world
+            scenes</b> in two environments, a messy bedroom and a conference room, with 5 object
+            types and 3&ndash;7 context variations, for a total of <b>60 robot trials</b> across
+            the four methods. Success rate is the percentage of trials where the robot reaches the
+            goal without executing unsafe actions. We deploy MessyNav on a TidyBot++ platform: a 7-DoF
+            Kinova arm on a holonomic mobile base, with a Unitree L2 LiDAR and two ZED 2 cameras.
+          </p>
+        </div>
+
+        <table class="table is-fullwidth is-hoverable results-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th class="has-text-right">Success (%) &uarr;</th>
+              <th class="has-text-right">Exec. time (s) &darr;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="is-ours">
+              <td><b>MessyNav</b></td>
+              <td class="has-text-right"><b>67</b> (10/15)</td>
+              <td class="has-text-right">45.8</td>
+            </tr>
+            <tr>
+              <td>height-only [5]</td>
+              <td class="has-text-right">13 (2/15)</td>
+              <td class="has-text-right">24.5</td>
+            </tr>
+            <tr>
+              <td>vlm-planner-only</td>
+              <td class="has-text-right">40 (6/15)</td>
+              <td class="has-text-right">45.9</td>
+            </tr>
+            <tr>
+              <td>closed-set-planner [4]</td>
+              <td class="has-text-right">27 (4/15)</td>
+              <td class="has-text-right">50.4</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="table-caption">
+          <b>Table 2: Real-world interactive navigation.</b> Execution time excludes VLM queries and
+          is averaged over successful trials. The two ablations isolate our core design decision:
+          removing the affordance reasoner (vlm-planner-only) drops success from 67% to
+          40%, and replacing it with fixed category-level labels (closed-set-planner) drops
+          it further to 27%. <b>Takeaway:</b> inaccurate prior affordances are worse than none at
+          all.
+        </p>
+
+        <h3 class="title is-4">Scaled offline evaluation</h3>
+        <div class="content has-text-justified">
+          <p>
+            To quantify VLM variability and isolate high-level decision quality from low-level
+            execution failures, we additionally evaluate MessyNav and the strongest baseline offline
+            over <b>15 repeated trials across 55 scenes in 5 environments (n = 825 per method)</b>,
+            assuming perfect low-level execution.
+          </p>
+        </div>
+
+        <table class="table is-fullwidth is-hoverable results-table">
+          <thead>
+            <tr>
+              <th>Setting</th>
+              <th class="has-text-right">MessyNav (%) &uarr;</th>
+              <th class="has-text-right">vlm-planner-only (%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="is-ours">
+              <td><b>Overall</b></td>
+              <td class="has-text-right"><b>62.4</b></td>
+              <td class="has-text-right">55.4</td>
+            </tr>
+            <tr>
+              <td>Outdoor, daytime</td>
+              <td class="has-text-right">78.3</td>
+              <td class="has-text-right">60.8</td>
+            </tr>
+            <tr>
+              <td>Indoor, well-lit</td>
+              <td class="has-text-right">62.8</td>
+              <td class="has-text-right">55.5</td>
+            </tr>
+            <tr>
+              <td>Nighttime</td>
+              <td class="has-text-right">29.2</td>
+              <td class="has-text-right">44.2</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="table-caption">
+          <b>Table 3: Scaled offline evaluation.</b> MessyNav improves overall success by
+          <b>+7.0 pp</b> and wins in 13 of 15 runs, a statistically significant gain under a paired
+          t-test over per-run success rates (paired t(14) = 4.71, p &lt; 0.001; 95% CI on the
+          difference [+3.8, +10.2] pp). Gains are largest outdoors in daylight. Nighttime remains
+          challenging for both methods and is the one setting where MessyNav trails the baseline,
+          highlighting robustness under degraded visual conditions as important future work.
+        </p>
+
+        <div class="columns is-multiline offline-grid">
+          <div class="column is-half">
+            <img class="offline-scene" src="./static/images/offline/scene1.jpg" alt="Indoor cafe corridor with a small object on the floor ahead of the robot"
+                 loading="lazy">
+          </div>
+          <div class="column is-half">
+            <img class="offline-scene" src="./static/images/offline/scene2.jpg" alt="Outdoor ramp in daylight with a plastic bag and a yellow object on the path"
+                 loading="lazy">
+          </div>
+          <div class="column is-half">
+            <img class="offline-scene" src="./static/images/offline/scene3.jpg" alt="Outdoor gravel path in daylight blocked by two wooden crates"
+                 loading="lazy">
+          </div>
+          <div class="column is-half">
+            <img class="offline-scene" src="./static/images/offline/scene4.jpg" alt="Outdoor walkway at night with a caution crate and a bag on the path"
+                 loading="lazy">
+          </div>
+        </div>
+        <p class="table-caption">
+          <b>Example scenes from the offline evaluation.</b> Egocentric robot views drawn from the
+          55 scenes across 5 environments, spanning indoor spaces, outdoor paths in daylight, and
+          outdoor walkways at night.
+        </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>TODO: paste your BibTeX entry here.</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This page was built using the source code of the
+            <a href="https://nerfies.github.io">Nerfies</a> project page.
+            We thank the authors for open-sourcing their template.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>

@@ -1,0 +1,338 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+
+.footer .icon-link {
+    font-size: 25px;
+    color: #000;
+}
+
+.link-block a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dnerf {
+  font-variant: small-caps;
+}
+
+
+.teaser .hero-body {
+  padding-top: 0;
+  padding-bottom: 3rem;
+}
+
+.teaser {
+  font-family: 'Google Sans', sans-serif;
+}
+
+
+.publication-title {
+}
+
+.publication-banner {
+  max-height: parent;
+
+}
+
+.publication-banner video {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  object-fit: fit;
+}
+
+.publication-header .hero-body {
+}
+
+.publication-title {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-authors {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-venue {
+    color: #555;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.publication-awards {
+    color: #ff3860;
+    width: fit-content;
+    font-weight: bolder;
+}
+
+.publication-authors {
+}
+
+.publication-authors a {
+   color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+    text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.publication-banner img {
+}
+
+.publication-authors {
+  /*color: #4286f4;*/
+}
+
+.publication-video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+
+    overflow: hidden;
+    border-radius: 10px !important;
+}
+
+.publication-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.publication-body img {
+}
+
+.results-carousel {
+  overflow: hidden;
+}
+
+.results-carousel .item {
+  margin: 5px;
+  overflow: hidden;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  padding: 0;
+  font-size: 0;
+}
+
+.results-carousel video {
+  margin: 0;
+}
+
+
+.interpolation-panel {
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.interpolation-panel .interpolation-image {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.interpolation-video-column {
+}
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+#interpolation-image-wrapper {
+  width: 100%;
+}
+#interpolation-image-wrapper img {
+  border-radius: 5px;
+}
+
+/* ---------------------------------------------------------------
+   MessyNav theme. Tune everything from the variable below.
+   --------------------------------------------------------------- */
+
+:root {
+  --messynav-orange-rgb: 255, 122, 0;
+}
+
+/* Title block: white, with a light wash fading in from each side only. */
+.hero-gradient {
+  background-color: #fff;
+  background-image:
+    linear-gradient(to right,
+      rgba(var(--messynav-orange-rgb), 0.20),
+      rgba(var(--messynav-orange-rgb), 0) 34%),
+    linear-gradient(to left,
+      rgba(var(--messynav-orange-rgb), 0.20),
+      rgba(var(--messynav-orange-rgb), 0) 34%);
+  border-bottom: 1px solid #e6e6e6;
+}
+
+/* Author names in black rather than the template's blue. */
+.publication-authors a {
+  color: #000 !important;
+}
+
+.publication-authors a:hover {
+  text-decoration: underline;
+}
+
+/* Section nav: hidden over the title, fades in from the abstract onward. */
+html {
+  scroll-behavior: smooth;
+}
+
+.messynav-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  background-color: rgba(255, 255, 255, 0.92);
+  background-image:
+    linear-gradient(to right,
+      rgba(var(--messynav-orange-rgb), 0.20),
+      rgba(var(--messynav-orange-rgb), 0) 34%),
+    linear-gradient(to left,
+      rgba(var(--messynav-orange-rgb), 0.20),
+      rgba(var(--messynav-orange-rgb), 0) 34%);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-bottom: 1px solid #e6e6e6;
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.messynav-navbar.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.messynav-navbar .navbar-menu {
+  justify-content: flex-start;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.messynav-navbar .navbar-start {
+  margin-right: auto;
+}
+
+.messynav-navbar .navbar-item {
+  font-weight: 600;
+  background-color: transparent;
+}
+
+.messynav-navbar .navbar-item:hover {
+  color: rgba(var(--messynav-orange-rgb), 1);
+}
+
+.messynav-brand {
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.messynav-brand:hover {
+  background-color: transparent;
+  color: rgba(var(--messynav-orange-rgb), 1);
+}
+
+/* Keep anchor jumps from landing underneath the fixed bar. */
+section[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+/* Light grey rules separating the major page sections. */
+.section-divider {
+  background-color: #e6e6e6;
+  border: none;
+  height: 1px;
+  margin: 0;
+}
+
+/* 1. Breathing room between the title block and the teaser carousel
+      (the nerfies template zeroes this out). */
+.teaser .hero-body {
+  padding-top: 3rem;
+}
+
+/* Main paper video. */
+.paper-video {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Results tables. */
+.results-table {
+  margin-bottom: 0.5rem;
+}
+
+.results-table thead th {
+  border-bottom-width: 2px;
+}
+
+.results-table tr.is-ours {
+  background-color: rgba(var(--messynav-orange-rgb), 0.10);
+}
+
+.table-caption {
+  color: #4a4a4a;
+  font-size: 0.9rem;
+  margin-bottom: 2.5rem;
+  text-align: justify;
+}
+
+/* Affordance benchmark examples: hover swaps the photo for the annotated eval view. */
+.affordance-grid {
+  margin-bottom: 0.5rem;
+}
+
+.affordance-pair {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.affordance-pair img {
+  display: block;
+  width: 100%;
+}
+
+.affordance-pair .affordance-eval {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+
+/* :focus-within keeps this reachable by keyboard, and covers tap on touch devices. */
+.affordance-pair:hover .affordance-eval,
+.affordance-pair:focus-within .affordance-eval {
+  opacity: 1;
+}
+
+/* Offline evaluation example scenes. */
+.offline-grid {
+  margin-bottom: 0.5rem;
+}
+
+.offline-scene {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+}
