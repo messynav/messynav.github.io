@@ -14,22 +14,24 @@
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css?v=11">
-  <link rel="icon" href="./static/images/favicon.svg">
+  <link rel="stylesheet" href="./static/css/index.css?v=25">
+  <link rel="icon" type="image/png" sizes="32x32" href="./static/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="./static/images/favicon-192.png">
+  <link rel="apple-touch-icon" href="./static/images/apple-touch-icon.png">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js?v=3"></script>
+  <script defer src="./static/js/demo.js?v=2"></script>
 </head>
 <body>
 
 <nav class="navbar messynav-navbar" role="navigation" aria-label="main navigation">
-  <div class="container is-fullhd">
+  <div class="container is-max-desktop">
     <div class="navbar-brand">
       <a class="navbar-item messynav-brand" href="#top">MessyNav</a>
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
@@ -42,7 +44,8 @@
     <div id="navMenu" class="navbar-menu">
       <div class="navbar-start">
         <a class="navbar-item" href="#abstract">Abstract</a>
-        <a class="navbar-item" href="#approach">Approach</a>
+        <a class="navbar-item" href="#approach">Framework</a>
+        <a class="navbar-item" href="#demo">Demo</a>
         <a class="navbar-item" href="#results">Results</a>
         <a class="navbar-item" href="#BibTeX">BibTeX</a>
       </div>
@@ -85,37 +88,11 @@
             <span class="publication-venue is-size-5">Accepted to CoRL 2026</span>
 
             <div class="publication-links">
-              <!-- PDF Link. -->
               <span class="link-block">
-                <a href="TODO_PAPER_URL"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <!-- arXiv Link. -->
-              <span class="link-block">
-                <a href="TODO_ARXIV_URL"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="ai ai-arxiv"></i></span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <!-- Video Link. -->
-              <span class="link-block">
-                <a href="TODO_VIDEO_URL"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="fab fa-youtube"></i></span>
-                  <span>Video</span>
-                </a>
-              </span>
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="TODO_CODE_URL"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="fab fa-github"></i></span>
-                  <span>Code</span>
-                </a>
+                <span class="external-link button is-normal is-rounded is-dark is-coming-soon">
+                  <span class="icon"><i class="fas fa-clock"></i></span>
+                  <span>Paper, video, and code coming soon</span>
+                </span>
               </span>
             </div>
           </div>
@@ -126,42 +103,27 @@
 </section>
 
 
-<!-- Teaser carousel. -->
+<!-- Teaser video. -->
 <section class="hero teaser">
-  <div class="container is-fullhd">
+  <div class="container is-max-desktop">
     <div class="hero-body">
-      <div class="carousel results-carousel">
-          <div class="item">
-            <video autoplay muted loop playsinline height="100%">
-              <source src="./static/videos/outdoor_mess.mp4" type="video/mp4">
-            </video>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">What makes Interactive Navigation Hard?</h2>
+          <div class="content has-text-justified">
+            <p>
+              Interactive navigation is hard because the robot must decide what it can safely
+              move before it acts. That judgment has to hold zero-shot across novel objects,
+              unfamiliar environments, and context that changes what is safe to move, and many
+              mistakes cannot be undone.
+            </p>
           </div>
-          <div class="item">
-            <video autoplay muted loop playsinline height="100%">
-              <source src="./static/videos/unstable_books.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item">
-            <video autoplay muted loop playsinline height="100%">
-              <source src="./static/videos/outdoor_garden_party.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item">
-            <video autoplay muted loop playsinline height="100%">
-              <source src="./static/videos/computer.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item">
-            <video autoplay muted loop playsinline height="100%">
-              <source src="./static/videos/night.mp4" type="video/mp4">
-            </video>
-          </div>
+        </div>
       </div>
-      <h2 class="subtitle has-text-centered">
-        MessyNav deployed across a range of real-world scenes. With no collision-free path
-        available, it reasons about object affordances from appearance and context to decide what
-        to move and still reaches its goal.
-      </h2>
+      <video class="paper-video" controls preload="metadata" playsinline
+             poster="./static/images/teaser-poster.jpg?v=2">
+        <source src="./static/videos/teaser_explainer.mp4?v=2" type="video/mp4">
+      </video>
     </div>
   </div>
 </section>
@@ -180,27 +142,53 @@
       </div>
     </div>
     <!--/ Abstract. -->
+  </div>
 
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <video class="paper-video" controls preload="metadata" playsinline
-               poster="./static/images/video-poster.jpg">
-          <source src="./static/videos/messynav_corl_final.mp4" type="video/mp4">
+  <!-- Results carousel. -->
+  <div class="container is-max-desktop abstract-carousel">
+    <div class="carousel results-carousel">
+      <div class="item">
+        <video controls autoplay muted loop playsinline height="100%">
+          <source src="./static/videos/outdoor_mess.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video controls autoplay muted loop playsinline height="100%">
+          <source src="./static/videos/rayo_maqueen.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video controls autoplay muted loop playsinline height="100%">
+          <source src="./static/videos/outdoor_garden_party.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video controls autoplay muted loop playsinline height="100%">
+          <source src="./static/videos/golf_balls.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <video controls autoplay muted loop playsinline height="100%">
+          <source src="./static/videos/night.mp4" type="video/mp4">
         </video>
       </div>
     </div>
-    <!--/ Paper video. -->
+    <h2 class="subtitle has-text-centered">
+      MessyNav deployed across a range of real-world scenes. With no collision-free path
+      available, it reasons about object affordances from appearance and context to decide what
+      to move and still reaches its goal.
+    </h2>
   </div>
+  <!--/ Results carousel. -->
 </section>
 
 <section class="section" id="approach">
   <div class="container is-max-desktop">
 
-    <!-- Approach. -->
+    <!-- MessyNav Framework. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Approach</h2>
+        <h2 class="title is-3">MessyNav Framework</h2>
         <div class="content has-text-justified">
           <p>
             We present MessyNav, an interactive navigation framework that leverages VLMs for
@@ -242,10 +230,50 @@
             </li>
           </ol>
         </div>
+
+        <video class="paper-video" controls autoplay muted loop playsinline
+               style="margin-top: 2rem;">
+          <source src="./static/videos/messynav_walkthrough.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
-    <!--/ Approach. -->
+    <!--/ MessyNav Framework. -->
 
+  </div>
+</section>
+
+<!-- Affordance Reasoning Interactive Demo. -->
+<section class="section" id="demo">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Affordance Reasoning Interactive Demo</h2>
+        <div class="content has-text-justified">
+          <p>
+            See MessyNav predict the interactivity labels of objects. Upload an image.
+          </p>
+        </div>
+        <div class="demo">
+          <div class="demo-controls">
+            <label class="button is-dark is-rounded" for="demo-file">Upload an image</label>
+            <input type="file" id="demo-file" accept="image/*" hidden>
+            <span class="demo-examples">or try an example:
+              <button type="button" class="demo-example"
+                      data-demo-example="./static/images/affordance/0448.jpg">indoor</button>
+              <button type="button" class="demo-example"
+                      data-demo-example="./static/images/affordance/0460.jpg">outdoor</button>
+              <button type="button" class="demo-example"
+                      data-demo-example="./static/images/affordance/0513.jpg">playroom</button>
+              <button type="button" class="demo-example"
+                      data-demo-example="./static/images/affordance/7755.jpg">night</button>
+            </span>
+          </div>
+          <p id="demo-status" class="demo-status"></p>
+          <canvas id="demo-canvas" hidden></canvas>
+          <div id="demo-table"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -309,7 +337,7 @@
           <div class="column is-half">
             <div class="affordance-pair">
               <img src="./static/images/affordance/0448.jpg" alt="Conference room with a white rolling cart, a black suitcase topped with a cardboard box, red sofas, hats and a wrapped package on the floor" loading="lazy">
-              <img class="affordance-eval" src="./static/images/affordance/0448_eval.jpg"
+              <img class="affordance-eval" src="./static/images/affordance/0448_eval.jpg?v=2"
                    alt="Same scene with predicted affordance labels and ground-truth correctness"
                    loading="lazy">
             </div>
@@ -317,7 +345,7 @@
           <div class="column is-half">
             <div class="affordance-pair">
               <img src="./static/images/affordance/0460.jpg" alt="Outdoor park in daylight with a wooden bench, a trash can, a plastic bag and a picnic table among fallen leaves" loading="lazy">
-              <img class="affordance-eval" src="./static/images/affordance/0460_eval.jpg"
+              <img class="affordance-eval" src="./static/images/affordance/0460_eval.jpg?v=2"
                    alt="Same scene with predicted affordance labels and ground-truth correctness"
                    loading="lazy">
             </div>
@@ -325,7 +353,7 @@
           <div class="column is-half">
             <div class="affordance-pair">
               <img src="./static/images/affordance/0513.jpg" alt="Indoor room with a wooden toy train set and a teddy bear on carpet" loading="lazy">
-              <img class="affordance-eval" src="./static/images/affordance/0513_eval.jpg"
+              <img class="affordance-eval" src="./static/images/affordance/0513_eval.jpg?v=2"
                    alt="Same scene with predicted affordance labels and ground-truth correctness"
                    loading="lazy">
             </div>
@@ -333,7 +361,7 @@
           <div class="column is-half">
             <div class="affordance-pair">
               <img src="./static/images/affordance/7755.jpg" alt="Outdoor walkway at night with a red slatted crate on the pavement" loading="lazy">
-              <img class="affordance-eval" src="./static/images/affordance/7755_eval.jpg"
+              <img class="affordance-eval" src="./static/images/affordance/7755_eval.jpg?v=2"
                    alt="Same scene with predicted affordance labels and ground-truth correctness"
                    loading="lazy">
             </div>
@@ -341,9 +369,9 @@
         </div>
         <p class="table-caption">
           <b>Example scenes from the benchmark.</b> Hover over an image to reveal the annotated
-          evaluation view: each object is boxed and labeled with its predicted affordance
-          (<b>[I]</b> interactive, <b>[N]</b> non-interactive) alongside whether the prediction
-          matches the human ground truth.
+          evaluation view: each object is boxed and labeled with its affordance
+          (<b class="tag-interactive">[I] interactive</b>, highlighted green;
+          <b class="tag-non-interactive">[N] non-interactive</b>, highlighted blue).
         </p>
 
         <h3 class="title is-4">Real-world interactive navigation</h3>
@@ -397,6 +425,19 @@
           it further to 27%. <b>Takeaway:</b> inaccurate prior affordances are worse than none at
           all.
         </p>
+
+        <div class="columns is-multiline rollout-grid">
+          <div class="column is-half">
+            <video controls autoplay muted loop playsinline class="rollout-video">
+              <source src="./static/videos/toys.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-half">
+            <video controls autoplay muted loop playsinline class="rollout-video">
+              <source src="./static/videos/computer.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
 
         <h3 class="title is-4">Scaled offline evaluation</h3>
         <div class="content has-text-justified">
@@ -480,28 +521,50 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>TODO: paste your BibTeX entry here.</code></pre>
+    <pre><code>@inproceedings{llontop2026messynav,
+  title     = {MessyNav: Zero-Shot Navigation via Manipulation in Messy Environments},
+  author    = {Llontop, Kenneth and Ho, Cherie and Zhou, Dylan and Banwasi, Anuva
+               and Sundaresan, Priya and Parés-Morlans, Carlota and Bohg, Jeannette},
+  booktitle = {Conference on Robot Learning (CoRL)},
+  year      = {2026},
+}</code></pre>
+  </div>
+</section>
+
+<!-- Acknowledgments. -->
+<section class="section" id="acknowledgments">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Acknowledgments</h2>
+        <div class="content has-text-justified">
+          <p>
+            This work was supported in part by Toyota Research Institute. Kenneth Llontop is
+            supported by the SEED Scholarship at the University of California, Berkeley, SURF at
+            Stanford University, and NSF CISE REU. Cherie Ho is supported by the Croucher
+            Fellowship for Postdoctoral Research. Carlota Parés-Morlans is supported by a
+            graduate fellowship from Knight-Hennessy Scholars at Stanford University.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 
 <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This page was built using the source code of the
-            <a href="https://nerfies.github.io">Nerfies</a> project page.
-            We thank the authors for open-sourcing their template.
-          </p>
-        </div>
-      </div>
+  <div class="container is-max-desktop">
+    <div class="content">
+      <p>
+        This website is licensed under a <a rel="license"
+           href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons
+        Attribution-ShareAlike 4.0 International License</a>.
+      </p>
+      <p>
+        This page was built using the source code of the
+        <a href="https://nerfies.github.io">Nerfies</a> project page.
+        We thank the authors for open-sourcing their template.
+      </p>
     </div>
   </div>
 </footer>

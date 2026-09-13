@@ -266,6 +266,8 @@ section[id] {
       (the nerfies template zeroes this out). */
 .teaser .hero-body {
   padding-top: 3rem;
+  /* The abstract section below already contributes 3rem of top padding. */
+  padding-bottom: 0;
 }
 
 /* Main paper video. */
@@ -335,4 +337,182 @@ section[id] {
   display: block;
   width: 100%;
   border-radius: 8px;
+}
+
+
+/* Carousel sitting under the abstract text. */
+.abstract-carousel {
+  margin-top: 2.5rem;
+}
+
+.abstract-carousel .subtitle {
+  margin-top: 1.25rem;
+}
+
+/* ---------------------------------------------------------------
+   Uniform section spacing. Every section supplies its own top gap
+   and contributes no bottom padding, so the gap between one
+   section's last element and the next section's title is always
+   3rem instead of doubling to 6rem.
+   --------------------------------------------------------------- */
+.section {
+  padding-bottom: 0;
+}
+
+/* The final caption in a section would otherwise leak its 2.5rem
+   bottom margin into that gap. */
+.table-caption:last-child {
+  margin-bottom: 0;
+}
+
+/* Interactive affordance demo. */
+.demo-controls {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.demo-examples {
+  color: #4a4a4a;
+}
+
+.demo-example {
+  background: none;
+  border: 1px solid #d0d0d0;
+  border-radius: 999px;
+  cursor: pointer;
+  font: inherit;
+  margin-left: 0.35rem;
+  padding: 0.15rem 0.75rem;
+}
+
+.demo-example:hover {
+  border-color: rgba(var(--messynav-orange-rgb), 1);
+  color: rgba(var(--messynav-orange-rgb), 1);
+}
+
+.demo-status {
+  color: #4a4a4a;
+  min-height: 1.5em;
+}
+
+.demo-status.is-busy::after {
+  animation: demo-pulse 1s ease-in-out infinite;
+  content: "";
+  display: inline-block;
+  height: 0.5em;
+  margin-left: 0.4em;
+  width: 0.5em;
+  border-radius: 50%;
+  background: rgba(var(--messynav-orange-rgb), 1);
+}
+
+.demo-status.is-error {
+  color: #D32F2F;
+}
+
+@keyframes demo-pulse {
+  0%, 100% { opacity: 0.25; }
+  50%      { opacity: 1; }
+}
+
+#demo-canvas {
+  border-radius: 8px;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#demo-table {
+  margin-top: 1.25rem;
+}
+
+/* ---------------------------------------------------------------
+   Typography. One family across the page, one size for subsection
+   headers and one size for every piece of body text.
+   --------------------------------------------------------------- */
+
+body,
+.teaser,
+.title,
+.subtitle,
+.publication-title,
+.publication-authors,
+.publication-venue {
+  font-family: "Noto Sans", sans-serif;
+}
+
+/* Section titles (Abstract, MessyNav Framework, Results, BibTeX).
+   The BibTeX heading sits inside .content, which was shrinking it to 1.75em. */
+.section .title.is-3,
+.section .content h2.title,
+.section h2.title {
+  font-size: 2rem;
+}
+
+/* Subsection headers. */
+.section .title.is-4,
+.section h3.title {
+  font-size: 1.5rem;
+}
+
+/* Every piece of running text at one size. */
+.section p,
+.section li,
+.section td,
+.section th,
+.section .subtitle,
+.hero.teaser p,
+.table-caption,
+pre,
+pre code {
+  font-size: 1rem;
+}
+
+/* .hero-body adds 1.5rem of horizontal padding that .section containers do
+   not, leaving the teaser 48px narrower than every other block. Drop it once
+   the container has hit its max width; keep it on narrow screens so content
+   does not touch the viewport edge. */
+@media screen and (min-width: 1024px) {
+  .teaser .hero-body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* Real-world rollout clips under Table 2. */
+.rollout-grid {
+  margin-bottom: 0.5rem;
+}
+
+.rollout-video {
+  border-radius: 8px;
+  display: block;
+  width: 100%;
+}
+
+/* Affordance label colours, sampled from the annotated eval renders. */
+.tag-interactive {
+  color: #3CB93C;
+}
+
+.tag-non-interactive {
+  color: #0000A0;
+}
+
+/* Footer: separate the grey block from the last section, and trim Bulma's
+   6rem bottom padding down to match the spacing used everywhere else. */
+.footer {
+  margin-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+/* Placeholder for links that do not exist yet: looks like the link buttons
+   but is not clickable. */
+.is-coming-soon {
+  background-color: #6b6b6b;
+  cursor: default;
+  pointer-events: none;
 }
