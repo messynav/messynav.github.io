@@ -300,37 +300,14 @@
           </p>
         </div>
 
-        <table class="table is-fullwidth is-hoverable results-table">
-          <thead>
-            <tr>
-              <th>Method</th>
-              <th class="has-text-right">Accuracy (%) &uarr;</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="is-ours">
-              <td><b>MessyNav</b></td>
-              <td class="has-text-right"><b>82.9</b></td>
-            </tr>
-            <tr>
-              <td>height-only [5]</td>
-              <td class="has-text-right">59.9</td>
-            </tr>
-            <tr>
-              <td>closed-set [4]</td>
-              <td class="has-text-right">24.4</td>
-            </tr>
-            <tr>
-              <td>closed-set-oracle [4]</td>
-              <td class="has-text-right">64.5</td>
-            </tr>
-          </tbody>
-        </table>
+        <img class="results-figure" src="./static/images/affordance_reasoning.png"
+             alt="Bar chart of affordance classification accuracy: MessyNav 85.7%, closed-set oracle 66.4%, height heuristic 59.9%, closed-set 24.4%">
         <p class="table-caption">
-          <b>Table 1: Affordance accuracy.</b> MessyNav outperforms all baselines. Even
-          closed-set-oracle, an upper bound whose categories are drawn from the evaluation
-          set itself, underperforms MessyNav. <b>Takeaway:</b> predefined category-level labels are
-          insufficient for context-dependent affordance reasoning.
+          <b>Figure 1: Affordance accuracy.</b> MessyNav reaches 85.7% and outperforms all
+          baselines. Even closed-set-oracle [4], an upper bound whose categories are drawn from
+          the evaluation set itself, reaches only 66.4%, while the height heuristic [5] and
+          closed-set [4] baselines reach 59.9% and 24.4%. <b>Takeaway:</b> predefined
+          category-level labels are insufficient for context-dependent affordance reasoning.
         </p>
 
         <div class="columns is-multiline affordance-grid">
@@ -418,7 +395,7 @@
           </tbody>
         </table>
         <p class="table-caption">
-          <b>Table 2: Real-world interactive navigation.</b> Execution time excludes VLM queries and
+          <b>Table 1: Real-world interactive navigation.</b> Execution time excludes VLM queries and
           is averaged over successful trials. The two ablations isolate our core design decision:
           removing the affordance reasoner (vlm-planner-only) drops success from 67% to
           40%, and replacing it with fixed category-level labels (closed-set-planner) drops
@@ -481,7 +458,7 @@
           </tbody>
         </table>
         <p class="table-caption">
-          <b>Table 3: Scaled offline evaluation.</b> MessyNav improves overall success by
+          <b>Table 2: Scaled offline evaluation.</b> MessyNav improves overall success by
           <b>+7.0 pp</b> and wins in 13 of 15 runs, a statistically significant gain under a paired
           t-test over per-run success rates (paired t(14) = 4.71, p &lt; 0.001; 95% CI on the
           difference [+3.8, +10.2] pp). Gains are largest outdoors in daylight. Nighttime remains
@@ -542,8 +519,13 @@
             This work was supported in part by Toyota Research Institute. Kenneth Llontop is
             supported by the SEED Scholarship at the University of California, Berkeley, SURF at
             Stanford University, and NSF CISE REU. Cherie Ho is supported by the Croucher
-            Fellowship for Postdoctoral Research. Carlota Parés-Morlans is supported by a
+            Fellowship for Postdoctoral Research. Priya Sundaresan is supported by a National
+            Science Foundation Graduate Fellowship. Carlota Parés-Morlans is supported by a
             graduate fellowship from Knight-Hennessy Scholars at Stanford University.
+          </p>
+          <p>
+            We thank Satvik Sharma, Francis Engelmann, and Jennifer Grannen for helpful
+            discussions.
           </p>
         </div>
       </div>

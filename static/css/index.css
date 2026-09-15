@@ -282,6 +282,14 @@ section[id] {
   margin-bottom: 0.5rem;
 }
 
+/* Plot figures presented in place of a results table. */
+.results-figure {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto 0.5rem;
+}
+
 .results-table thead th {
   border-bottom-width: 2px;
 }
@@ -482,7 +490,7 @@ pre code {
   }
 }
 
-/* Real-world rollout clips under Table 2. */
+/* Real-world rollout clips under Table 1. */
 .rollout-grid {
   margin-bottom: 0.5rem;
 }
